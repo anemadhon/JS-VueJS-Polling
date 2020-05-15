@@ -55,6 +55,11 @@ export default {
             return this.status.length === 0 ? false : true
         }
 
+    },
+    mounted(){
+        this.$root.$on('emitProccessDone', () => {
+            this.status = ''
+        })
     }
 };
 

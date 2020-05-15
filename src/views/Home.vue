@@ -32,6 +32,7 @@ export default {
     },
     reset(){
       this.show = false
+      this.$root.$emit('emitProccessDone')
     }
   }
 };
