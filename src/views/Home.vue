@@ -1,18 +1,35 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="container">
+    <section class="vote">
+      <h3>Silahkan Nilai Kami</h3>
+      <div class="emoticons">
+        //untuk img emot
+      </div>
+    </section>
+    <section class="response">
+      <h4>Terima Kasih Atas Penilaian nya</h4>
+    </section>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
   name: "Home",
-  components: {
-    HelloWorld
-  }
+  components: {}
 };
+
 </script>
+
+<style scoped>
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    align-items: center;
+  }
+
+  section{
+    width: 100%;
+  }
+</style>
