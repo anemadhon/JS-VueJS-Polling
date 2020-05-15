@@ -32,6 +32,11 @@ export default {
     methods: {
         forVote(e){
             let voted = e.target.value
+            
+            this.store(voted)
+            this.whenClick()
+        },
+        store(voted){
             let voted_at = moment().format('YYYY-MM-DD hh:mm:ss')
             let voted_at_desc = moment().format('a')
             let key_voted = moment().format('YYYYMMDDhhmmss')
@@ -46,8 +51,6 @@ export default {
             let data_string = JSON.stringify(data)
 
             localStorage.setItem(key_voted, data_string)
-
-            this.whenClick()
         }
     },
     computed:{
