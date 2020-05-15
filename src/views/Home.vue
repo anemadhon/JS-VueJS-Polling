@@ -7,7 +7,7 @@
       </div>
     </section>
     <section class="response">
-      <transition name="fade">
+      <transition name="fade" v-on:after-enter="reset">
         <h4 v-if="show">Terima Kasih Atas Penilaian nya</h4>
       </transition>
     </section>
@@ -29,6 +29,9 @@ export default {
   methods: {
     showResponse(){
       this.show = true
+    },
+    reset(){
+      this.show = false
     }
   }
 };
@@ -52,10 +55,6 @@ export default {
 
   section{
     width: 100%;
-  }
-
-  .vote {
-    height: 50px;
   }
 
   .emoticons {

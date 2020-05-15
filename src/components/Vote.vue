@@ -71,7 +71,7 @@ export default {
     height: 100px;
     outline: none;
     border: none;
-    margin: 50px 10px;
+    margin: 0px 10px;
     cursor: pointer;
   }
 
