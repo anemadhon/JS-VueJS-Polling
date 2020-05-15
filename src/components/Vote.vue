@@ -18,7 +18,11 @@ import moment from "moment";
 
 export default {
     name: "Vote",
-    components: {},
+    props: {
+        whenClick: {
+            type: Function
+        }
+    },
     data: function () {
         return {
             emoticons: ['very-bad','bad','ok','good','very-good'],
@@ -42,6 +46,8 @@ export default {
             let data_string = JSON.stringify(data)
 
             localStorage.setItem(key_voted, data_string)
+
+            this.whenClick()
         }
     },
     computed:{

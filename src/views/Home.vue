@@ -3,11 +3,13 @@
     <section class="vote">
       <h3>Silahkan Nilai Kami</h3>
       <div class="emoticons">
-        <Vote />
+        <Vote :whenClick="showResponse"/>
       </div>
     </section>
     <section class="response">
-      <h4>Terima Kasih Atas Penilaian nya</h4>
+      <transition name="fade">
+        <h4 v-if="show">Terima Kasih Atas Penilaian nya</h4>
+      </transition>
     </section>
   </div>
 </template>
@@ -18,7 +20,17 @@ import Vote from "@/components/Vote.vue";
 
 export default {
   name: "Home",
-  components: { Vote }
+  data: function(){
+    return {
+      show: false
+    }
+  },
+  components: { Vote },
+  methods: {
+    showResponse(){
+      this.show = true
+    }
+  }
 };
 
 </script>
