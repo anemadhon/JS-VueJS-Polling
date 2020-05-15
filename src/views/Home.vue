@@ -3,7 +3,7 @@
     <section class="vote">
       <h3>Silahkan Nilai Kami</h3>
       <div class="emoticons">
-        //untuk img emot
+        <Vote />
       </div>
     </section>
     <section class="response">
@@ -14,9 +14,11 @@
 
 <script>
 
+import Vote from "@/components/Vote.vue";
+
 export default {
   name: "Home",
-  components: {}
+  components: { Vote }
 };
 
 </script>
@@ -31,5 +33,14 @@ export default {
 
   section{
     width: 100%;
+  }
+
+  .vote {
+    height: 50px;
+  }
+
+  .emoticons {
+    display: flex;
+    justify-content: center;
   }
 </style>
