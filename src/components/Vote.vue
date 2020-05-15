@@ -4,6 +4,7 @@
             :key="index"
             :id="emot"
             :value="emot"
+            :disabled="isDisable"
             @click="forVote"
             class="emot-btn"
         ></button>
@@ -15,15 +16,17 @@
 import moment from "moment";
 
 export default {
-    name: "Home",
+    name: "Vote",
     components: {},
     data: function () {
         return {
-            emoticons: ['very-bad','bad','ok','good','very-good']
+            emoticons: ['very-bad','bad','ok','good','very-good'],
+            isDisable: false
         }
     },
     methods: {
         forVote(e){
+            this.isDisable = true
             let voted = e.target.value
             let voted_at = moment().format('YYYY-MM-DD hh:mm:ss')
             let voted_at_desc = moment().format('a')
