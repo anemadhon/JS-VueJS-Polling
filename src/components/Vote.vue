@@ -27,6 +27,7 @@ export default {
             let voted = e.target.value
             let voted_at = moment().format('YYYY-MM-DD hh:mm:ss')
             let voted_at_desc = moment().format('a')
+            let key_voted = moment().format('YYYYMMDDhhmmss')
 
             let data = {
                 voted: voted,
@@ -36,7 +37,7 @@ export default {
             
             let data_string = JSON.stringify(data)
 
-            localStorage.setItem('voted', data_string)
+            localStorage.setItem(key_voted, data_string)
         }
     }
 };
