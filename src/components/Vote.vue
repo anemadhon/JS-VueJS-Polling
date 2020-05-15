@@ -26,8 +26,17 @@ export default {
         forVote(e){
             let voted = e.target.value
             let voted_at = moment().format('YYYY-MM-DD hh:mm:ss')
+            let voted_at_desc = moment().format('a')
+
+            let data = {
+                voted: voted,
+                voted_at: voted_at,
+                voted_at_desc: voted_at_desc
+            }
             
-            localStorage.setItem('voted', voted)
+            let data_string = JSON.stringify(data)
+
+            localStorage.setItem('voted', data_string)
         }
     }
 };
