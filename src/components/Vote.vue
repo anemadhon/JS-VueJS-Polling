@@ -5,6 +5,7 @@
             :id="emot"
             :value="emot"
             :disabled="isDisable"
+            :class="{active: emot == status}"
             @click="forVote"
             class="emot-btn"
         ></button>
@@ -21,16 +22,18 @@ export default {
     data: function () {
         return {
             emoticons: ['very-bad','bad','ok','good','very-good'],
-            isDisable: false
+            isDisable: false,
+            status: false
         }
     },
     methods: {
         forVote(e){
-            this.isDisable = true
             let voted = e.target.value
             let voted_at = moment().format('YYYY-MM-DD hh:mm:ss')
             let voted_at_desc = moment().format('a')
             let key_voted = moment().format('YYYYMMDDhhmmss')
+            this.status = voted
+            this.isDisable = true
 
             let data = {
                 voted: voted,
@@ -75,6 +78,7 @@ export default {
     background-position: 0px -100px;
   }
   
+  #very-bad.active,
   #very-bad:active {
     background-position: 0px -200px;
   }
@@ -87,6 +91,7 @@ export default {
     background-position: -101px -100px;
   }
   
+  #bad.active,
   #bad:active {
     background-position: -101px -200px;
   }
@@ -99,6 +104,7 @@ export default {
     background-position: -202px -100px;
   }
   
+  #ok.active,
   #ok:active {
     background-position: -202px -200px;
   }
@@ -111,6 +117,7 @@ export default {
     background-position: -303px -100px;
   }
   
+  #good.active,
   #good:active {
     background-position: -303px -200px;
   }
@@ -123,6 +130,7 @@ export default {
     background-position: -404px -100px;
   }
   
+  #very-good.active,
   #very-good:active {
     background-position: -404px -200px;
   }
