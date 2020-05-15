@@ -22,8 +22,7 @@ export default {
     data: function () {
         return {
             emoticons: ['very-bad','bad','ok','good','very-good'],
-            isDisable: false,
-            status: false
+            status: ''
         }
     },
     methods: {
@@ -33,7 +32,6 @@ export default {
             let voted_at_desc = moment().format('a')
             let key_voted = moment().format('YYYYMMDDhhmmss')
             this.status = voted
-            this.isDisable = true
 
             let data = {
                 voted: voted,
@@ -45,6 +43,12 @@ export default {
 
             localStorage.setItem(key_voted, data_string)
         }
+    },
+    computed:{
+        isDisable:function(){
+            return this.status.length === 0 ? false : true
+        }
+
     }
 };
 
