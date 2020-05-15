@@ -12,6 +12,8 @@
 
 <script>
 
+import moment from "moment";
+
 export default {
     name: "Home",
     components: {},
@@ -22,8 +24,10 @@ export default {
     },
     methods: {
         forVote(e){
-            let voted = e.target.value;
-            localStorage.setItem('vote', voted)
+            let voted = e.target.value
+            let voted_at = moment().format('YYYY-MM-DD hh:mm:ss')
+            
+            localStorage.setItem('voted', voted)
         }
     }
 };
